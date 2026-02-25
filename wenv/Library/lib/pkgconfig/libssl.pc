@@ -1,0 +1,11 @@
+prefix=C:/Users/okebaramw/Videos/Python/AI Engineering/AWS GenAI Essestial/wenv/Library 
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenSSL-libssl
+Description: Secure Sockets Layer and cryptography libraries
+Libs: -L"${libdir}" -llibssl
+Requires: libcrypto
+Cflags: -I"${includedir}"
+Version: 3.0.18 

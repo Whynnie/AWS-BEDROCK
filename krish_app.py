@@ -11,15 +11,15 @@ def blog_generate_using_bedrock(blogtopic:str)-> str:
 
     body={
         "prompt":prompt,
-        "max_gen_len":512,
-        "temperature":0.5,
-        "top_p":0.9
+        "maxTokens":512,
+        "temperature":0.6,
+        "topP":0.9
     }
 
     try:
-        bedrock=boto3.client("bedrock-runtime",region_name="us-east-1",
+        bedrock=boto3.client("aws bedrock-runtime converse",region_name="us-east-1",
                              config=botocore.config.Config(read_timeout=300,retries={'max_attempts':3}))
-        response=bedrock.invoke_model(body=json.dumps(body),modelId="meta.llama2-13b-chat-v1")
+        response=bedrock.invoke_model(body=json.dumps(body),modelId=" arn:aws:bedrock:us-east-1:381843729783:inference-profile/us.meta.llama4-scout-17b-instruct-v1:0")
 
         response_content=response.get('body').read()
         response_data=json.loads(response_content)
